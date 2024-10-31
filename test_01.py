@@ -46,16 +46,12 @@ param_grid = {
 	'max_leaf_nodes': [3, 6, 9], 
 } 
 
-grid_search = GridSearchCV(RandomForestClassifier(), 
-						param_grid=param_grid) 
+grid_search = GridSearchCV(RandomForestClassifier(), param_grid=param_grid) 
 grid_search.fit(X_train, y_train) 
 print(grid_search.best_estimator_) 
 
 
-model_grid = RandomForestClassifier(max_depth=9, 
-									max_features="log2", 
-									max_leaf_nodes=9, 
-									n_estimators=25) 
+model_grid = RandomForestClassifier(max_depth=9, max_features="log2", max_leaf_nodes=9, n_estimators=25) 
 model_grid.fit(X_train, y_train) 
 y_pred_grid = model.predict(X_test) 
 print(classification_report(y_pred_grid, y_test)) 
